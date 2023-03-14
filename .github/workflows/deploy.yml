@@ -29,9 +29,7 @@ jobs:
         git config --global user.name "Cloudfest Hackathon Cool Kids"
         
     - name: Configure GIT remote
-      run: |
-           git remote add production ${{ secrets.GIT_REMOTE }}
-           git remote -v
+      run: git remote -v
       
     - name: Deploy to Production environment
       run: git push -f production main
