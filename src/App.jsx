@@ -1,5 +1,6 @@
 import React from "react";
 import {Helmet} from "react-helmet";
+import "./scss/main.scss";
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
 		</Helmet>
 
 		<div className="title-wrap">
-			<h1>docs_dangit: A search engine for WordPress developers</h1>
+			<h1 className="font-sans">docs_dangit: A search engine for WordPress developers</h1>
 		</div>
 
     </div>
