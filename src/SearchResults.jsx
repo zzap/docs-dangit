@@ -20,6 +20,7 @@ const SearchResults = (props) => {
             
             { data && data?.length > 0 && props?.query && props?.query.length > 2 &&
                 <>
+                    {console.log( data )}
                     {data.map( ( item, i ) => {
                         return (
                             <div key={i}>
