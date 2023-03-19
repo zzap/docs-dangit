@@ -28,7 +28,7 @@ const SearchResults = ({ query }) => {
   }
   if (loading) return <p className="mt-8 text-gray-600">Loading...</p>;
 
-  if (!query) return null
+  if (!query) return null;
 
   if (null !== selectedResult && codeSnippets && codeSnippets[selectedResult]) {
     return (
