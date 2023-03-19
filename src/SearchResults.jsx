@@ -1,4 +1,5 @@
 import React from "react";
+import Highlight from "react-highlight";
 import useSWR from "swr";
 
 const SearchResults = (props) => {
@@ -16,20 +17,20 @@ const SearchResults = (props) => {
   return (
     <div className="results-wrap">
       <h2>Search results for: {props?.query}</h2>
-
       {data && data?.length > 0 && props?.query && props?.query.length > 2 && (
-        <>
+        <div className="grid grid-cols-3 gap-4 mt-4">
           {console.log(data)}
           {data.map((item, i) => {
             return (
-              <div key={i}>
-                <div
-                  dangerouslySetInnerHTML={{ __html: item?.content?.rendered }}
-                />
-              </div>
+              <Highlight
+                key={i}
+                className="html rounded-xl p-4 border shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap"
+              >
+                {item?.content?.rendered}
+              </Highlight>
             );
           })}
-        </>
+        </div>
       )}
     </div>
   );

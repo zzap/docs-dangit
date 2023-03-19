@@ -1,0 +1,39 @@
+name: Lintint
+on: push
+jobs:
+    lint:
+        name: Lint
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        strategy:
+            fail-fast: true
+        steps:
+            - name: Check out source code
+              uses: actions/checkout@v3
+
+            - name: Install NPM packages
+              run: npm ci --include=dev
+
+            - name: Attempt to fix linting errors
+              run: |
+                  npx eslint --fix ./src
+                  npx prettier --write ./src
+              env:
+                  CI: true
+
+            - name: Commit and push if files have changed
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: 'chore: lint and format'
+                  commit_options: '--no-verify'
+                  commit_user_name: 'GitHub Actions'
+                  commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+                  commit_author: 'GitHub Actions <github-actions[bot]@users.noreply.github.com>'
+
+            - name: Lint and build
+              run: |
+                  npx eslint --max-warnings 0 ./src
+                  npm run build
+              env:
+                  CI: true
