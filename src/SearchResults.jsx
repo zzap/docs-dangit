@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Highlight from "react-highlight";
 import useSWR from "swr";
+import { CopyIcon } from "./svg";
 
 const SearchResults = (props) => {
   const [selectedResult, selectResult] = useState(null);
+  const [copyStatus, setCopyStatus] = useState("");
+
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   // fetch data
@@ -12,6 +15,10 @@ const SearchResults = (props) => {
     fetcher
   );
 
+  const copyToClipboard = async (text) => {
+    return navigator.clipboard.writeText(text);
+  };
+
   if (error)
     return <p className="mt-8 text-gray-600">Failed to load, dangit.</p>;
   if (!data) return <p className="mt-8 text-gray-600">Loading...</p>;
@@ -19,12 +26,33 @@ const SearchResults = (props) => {
   if (null !== selectedResult && data && data[selectedResult]) {
     return (
       <div className="results-wrap mt-8">
-        <button
-          onClick={() => selectResult(null)}
-          className="mb-4 text-blue-700"
-        >
-          ← Back
-        </button>
+        <div className="flex justify-between mb-4">
+          <button
+            onClick={() => selectResult(null)}
+            className="bg-gray-100 hover:bg-gray-200 rounded-lg py-2 px-3"
+          >
+            ← Back
+          </button>
+          <button
+            onClick={() => {
+              copyToClipboard(data[selectedResult]?.content?.rendered)
+                .then(() => {
+                  setCopyStatus("Copied!");
+                  setTimeout(() => setCopyStatus(""), 2000);
+                })
+                .catch(() => {
+                  setCopyStatus("Failed to copy.");
+                  setTimeout(() => setCopyStatus(""), 2000);
+                });
+            }}
+            disabled={copyStatus !== ""}
+            className="bg-gray-100 hover:not(:disabled):bg-gray-200 rounded-lg py-2 px-3"
+          >
+            <CopyIcon className="w-6 inline" />{" "}
+            {copyStatus === "" ? "Copy code sample" : copyStatus}
+          </button>
+        </div>
+
         <Highlight className="html rounded-xl p-4 shadow font-mono text-sm">
           {data[selectedResult]?.content?.rendered}
         </Highlight>
