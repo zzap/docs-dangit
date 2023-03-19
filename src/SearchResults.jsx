@@ -15,7 +15,10 @@ const SearchResults = ({ query }) => {
   const { data, error, loading } = useSearch(query);
 
   const codeSnippets = data?.reduce((accumulator, result) => {
-    accumulator.push(...result.code_snippet);
+    const codeSnippet = result.code_snippet;
+    codeSnippet.url = result.url;
+    codeSnippet.codeCreator = result.code_creator;
+    accumulator.push(...codeSnippet);
     return accumulator;
   }, []);
 
