@@ -63,7 +63,9 @@ const App = () => {
 			</header>
 
 			<main className="p-8">
+				<div className="w-full max-w-7xl mx-auto">
 				<SearchBar />
+				</div>
 			</main>
 		</div>
 	);
