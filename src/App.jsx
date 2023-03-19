@@ -66,16 +66,19 @@ const App = () => {
         <div className="w-full max-w-7xl mx-auto flex-grow">
           <SearchBar />
         </div>
-        <footer className="mx-auto max-w-7xl w-full">
+        <footer className="mx-auto max-w-7xl w-full text-gray-700">
           <p>
             <a
-              className="underline"
+              className="underline hover:text-black"
               href="https://www.cloudfest.com/a-search-engine-for-wordpress-developers"
             >
               CloudFest hackathon 2023 project
             </a>{" "}
             |{" "}
-            <a className="underline" href="https://github.com/zzap/docs-dangit">
+            <a
+              className="underline hover:text-black"
+              href="https://github.com/zzap/docs-dangit"
+            >
               GitHub repository
             </a>
           </p>
