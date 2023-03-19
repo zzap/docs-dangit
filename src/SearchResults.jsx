@@ -92,7 +92,7 @@ const SearchResults = (props) => {
                             return (
                                 <div onClick={() => selectResult(i)} key={i}>
                                     <Highlight className="html rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out" key={i}>
-                                        {snipet?.code}
+                                        <div dangerouslySetInnerHTML={{__html: snipet?.code}} />
                                     </Highlight>
                                 </div>
                             )
