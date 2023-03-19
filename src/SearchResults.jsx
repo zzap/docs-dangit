@@ -15,7 +15,7 @@ const SearchResults = (props) => {
   if (!data) return <div>loading...</div>;
 
   return (
-    <div className="results-wrap">
+    <div className="results-wrap mt-8">
       <h2>Search results for: {props?.query}</h2>
       {data && data?.length > 0 && props?.query && props?.query.length > 2 && (
         <div className="grid grid-cols-3 gap-4 mt-4">

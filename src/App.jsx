@@ -23,7 +23,7 @@ const App = () => {
         </div>
       </header>
 
-      <main className="p-8 max-w-7xl">
+      <main className="p-8">
         <SearchBar />
       </main>
     </div>
