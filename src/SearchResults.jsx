@@ -16,7 +16,7 @@ const useSearch = (query) => {
 };
 
 const decodeHTMLEntities = (text) => {
-  var textArea = document.createElement("textarea");
+  const textArea = document.createElement("textarea");
   textArea.innerHTML = text;
   return textArea.value;
 };
@@ -72,9 +72,11 @@ const SearchResults = ({ query }) => {
                 return (
                   <div className="mb-4">
                     <Highlight
-                      className="html rounded-xl p-4 shadow font-mono text-sm"
+                      className={
+                        snipet?.language +
+                        " rounded-xl p-4 shadow font-mono text-sm"
+                      }
                       key={i}
-                      innerHTML={true}
                     >
                       {decodeHTMLEntities(snipet?.code)}
                     </Highlight>
@@ -107,7 +109,10 @@ const SearchResults = ({ query }) => {
                       return (
                         <div onClick={() => selectResult(i)} key={i}>
                           <Highlight
-                            className="html rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
+                            className={
+                              snipet?.language +
+                              " rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
+                            }
                             key={i}
                           >
                             {decodeHTMLEntities(snipet?.code)}
