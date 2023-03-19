@@ -1,6 +1,6 @@
 import React from "react";
 import {Helmet} from "react-helmet";
-import "./scss/main.scss";
+import "./main.css";
 import SearchBar from "./SearchBar";
 
 const App = () => {
@@ -11,19 +11,13 @@ const App = () => {
 			<title>docs_dangit</title>
 		</Helmet>
 
-		<div>
-			<div>
-				<div>
-					<div>
-						<h1>docs_dangit: A search engine for WordPress developers</h1>
-					</div>
-				</div>
+					<>
+						<h1 className="bg-pink-100">docs_dangit: A search engine for WordPress developers</h1>
+					</>
 
-				<div>
+				<>
 					<SearchBar />
-				</div>
-			</div>
-		</div>
+				</>
 
     </div>
   );
