@@ -1,7 +1,7 @@
 name: Lintint
 on: push
 jobs:
-    lint: #-------------------------------------------
+    lint:
         name: Lint
         runs-on: ubuntu-latest
         strategy:
