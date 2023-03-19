@@ -1,19 +1,7 @@
 import React, { useState } from "react";
 import Highlight from "react-highlight";
-import useSWR from "swr";
 import { CopyIcon } from "./svg";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const url = "https://heigl.docs-dang.it:8443/api/docs";
-const useSearch = (query) => {
-  const fullUrl = query ? `${url}?search=${query}` : url;
-  const { data, error } = useSWR(fullUrl, fetcher);
-  return {
-    data,
-    error,
-    loading: !data && !error,
-  };
-};
+import { useSearch } from "./hooks/useSearch";
 
 const decodeHTMLEntities = (text) => {
   const textArea = document.createElement("textarea");
