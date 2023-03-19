@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("../node_modules/highlight.js/styles/atom-one-dark.css");
+
 @layer base {
   h1 {
     @apply text-3xl;
