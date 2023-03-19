@@ -15,8 +15,8 @@ jobs:
 
             - name: Attempt to fix linting errors
               run: |
-                  npx eslint --fix .
-                  npx prettier --write .
+                  npx eslint --fix ./src
+                  npx prettier --write ./src
               env:
                   CI: true
 
@@ -31,7 +31,7 @@ jobs:
 
             - name: Lint and build
               run: |
-                  npx eslint --max-warnings 0 .
+                  npx eslint --max-warnings 0 ./src
                   npm run build
               env:
                   CI: true
