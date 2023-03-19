@@ -61,7 +61,7 @@ const SearchResults = (props) => {
   }
 
   return (
-    <div className="results-wrap mt-8">
+    <div className="results-wrap mt-8 container">
       {props?.query &&
         (props?.query.length < 3 ? (
           <p className="text-gray-600">Keep typing...</p>
@@ -69,7 +69,7 @@ const SearchResults = (props) => {
           <h2 className="font-bold">Search results for: {props?.query}</h2>
         ))}
       {data && data?.length > 0 && props?.query && props?.query.length > 2 && (
-        <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="grid gap-4 mt-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {console.log(data)}
           {data.map((item, i) => {
             return (

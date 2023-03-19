@@ -35,7 +35,7 @@ const App = () => {
           <div className="flex flex-wrap md:flex-nowrap justify-items-start items-center gap-4">
             <DocsDangitIconBold className="w-8 h-8 text-white" />
             <h1 className="font-bold">docs_dangit</h1>
-            <span className="font-mono ml-2 mb-1 text-sm self-end">
+            <span className="font-mono lg:ml-2 mb-1 text-sm self-end">
               A search engine for WordPress developers
             </span>
           </div>
