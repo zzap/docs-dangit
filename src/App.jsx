@@ -81,7 +81,8 @@ const App = () => {
             </a>
           </p>
           <p className="flex gap-1">
-            &copy; 2023 Cloudfest Hackathon{" "}<button
+            &copy; 2023 Cloudfest Hackathon{" "}
+            <button
               id="cool-kids-button"
               aria-hidden={true}
               className="cursor-default"
@@ -94,7 +95,9 @@ const App = () => {
                   origin: { x: 0.25, y: 0.9 },
                 });
               }}
-            >Cool Kids</button>
+            >
+              Cool Kids
+            </button>
           </p>
         </footer>
       </main>
