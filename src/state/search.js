@@ -7,12 +7,12 @@ export const useSearchStore = create(
       search: "",
       searchHistory: [],
       setSearch: (search) => set({ search }),
-      updateSearchHistory: (search) =>
-        set({ searchHistory: [...get().searchHistory, search] }),
+      setSearchHistory: (search) =>
+        set({ searchHistory: [...get().searchHistory.slice(-9), search] }),
     }),
     {
       name: "search-history",
-      storage: createJSONStorage(() => sessionStorage),
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );
