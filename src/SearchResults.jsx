@@ -16,10 +16,10 @@ const useSearch = (query) => {
 };
 
 const decodeHTMLEntities = (text) => {
-    var textArea = document.createElement('textarea');
-    textArea.innerHTML = text;
-    return textArea.value;
-}
+  var textArea = document.createElement("textarea");
+  textArea.innerHTML = text;
+  return textArea.value;
+};
 
 const SearchResults = ({ query }) => {
   const [selectedResult, selectResult] = useState(null);
