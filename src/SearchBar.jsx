@@ -18,7 +18,7 @@ const SearchBar = () => {
                 <input className="form-control" type="search" name="s" value={searchQuery} onChange={ (e) => handleSearch(e.target.value) } placeholder="Start typing..." />
             </form>
 
-            <div className="mt-3">
+            <div>
                 <SearchResults query={searchQuery} />
             </div>
         </div>

@@ -11,15 +11,15 @@ const App = () => {
 			<title>docs_dangit</title>
 		</Helmet>
 
-		<div className="container">
-			<div className="row">
-				<div className="col-12">
-					<div className="title-wrap">
-						<h1 className="mt-3">docs_dangit: A search engine for WordPress developers</h1>
+		<div>
+			<div>
+				<div>
+					<div>
+						<h1>docs_dangit: A search engine for WordPress developers</h1>
 					</div>
 				</div>
 
-				<div className="col-12 mt-5">
+				<div>
 					<SearchBar />
 				</div>
 			</div>

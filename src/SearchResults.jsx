@@ -16,7 +16,7 @@ const SearchResults = (props) => {
 
     return(
         <div className="results-wrap">
-            <h2 className="mb-4">Search results for: {props?.query}</h2>
+            <h2>Search results for: {props?.query}</h2>
             
             { data && data?.length > 0 && props?.query && props?.query.length > 2 &&
                 <>
