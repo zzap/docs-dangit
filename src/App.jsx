@@ -41,7 +41,7 @@ const App = () => {
           </div>
 
           <div className="flex flex-wrap lg:flex-nowrap gap-3 font-mono text-sm">
-			<span className="font-medium">Sources:</span>
+            <span className="font-medium">Sources:</span>
             <a
               href="https://developer.wordpress.org/reference"
               target="_blank"
