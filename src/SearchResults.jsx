@@ -11,10 +11,7 @@ const SearchResults = (props) => {
 
   let apiUrl = `https://heigl.docs-dang.it:8443/api/docs?search=${props?.query}`;
   // fetch data
-  const { data, error } = useSWR(
-    apiUrl,
-    fetcher
-  );
+  const { data, error } = useSWR(apiUrl, fetcher);
 
   const copyToClipboard = async (text) => {
     return navigator.clipboard.writeText(text);
@@ -54,20 +51,23 @@ const SearchResults = (props) => {
           </button>
         </div>
 
-        {data[selectedResult]?.code_snippet && data[selectedResult]?.code_snippet.length > 0 && (
+        {data[selectedResult]?.code_snippet &&
+          data[selectedResult]?.code_snippet.length > 0 && (
             <>
-                {data[selectedResult]?.code_snippet.map( (snipet, i) => {
-                    return (
-                        <div className="mb-4">
-                            <Highlight className="html rounded-xl p-4 shadow font-mono text-sm" key={i}>
-                                {snipet?.code}
-                            </Highlight>
-                        </div>
-                    );
-                })}
+              {data[selectedResult]?.code_snippet.map((snipet, i) => {
+                return (
+                  <div className="mb-4">
+                    <Highlight
+                      className="html rounded-xl p-4 shadow font-mono text-sm"
+                      key={i}
+                    >
+                      {snipet?.code}
+                    </Highlight>
+                  </div>
+                );
+              })}
             </>
-
-        )}
+          )}
       </div>
     );
   }
@@ -87,18 +87,19 @@ const SearchResults = (props) => {
             return (
               <div onClick={() => selectResult(i)} key={i}>
                 {item?.code_snippet && item?.code_snippet.length > 0 && (
-                    <>
-                        {item?.code_snippet.map( (snipet, i) => {
-                            return (
-                                <Highlight className="html rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out" key={i}>
-                                    {snipet?.code}
-                                </Highlight>
-                            )
-                        })}
-                    </>
+                  <>
+                    {item?.code_snippet.map((snipet, i) => {
+                      return (
+                        <Highlight
+                          className="html rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
+                          key={i}
+                        >
+                          {snipet?.code}
+                        </Highlight>
+                      );
+                    })}
+                  </>
                 )}
-
-                
               </div>
             );
           })}
