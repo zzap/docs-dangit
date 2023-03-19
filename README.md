@@ -28,7 +28,7 @@ URL: https://developer.wordpress.org/reference/
 
 ### WP-CLI 
 
-We use wp cli cmd-dump to export all commands (including the examples) in a giant JSON file which is stored in the GitHub repo. GitHub action is doing this automatically once a day at 6AM.
+We use [`wp cli cmd-dump`](https://github.com/wp-cli/wp-cli/blob/main/php/commands/src/CLI_Command.php#L543) to export all commands in a giant JSON file which is stored in the GitHub repo. [GitHub action](https://github.com/zzap/docs_dangit-the-beast/blob/main/.github/workflows/update-wp-cli-commands.yml) is doing this automatically once a day at 6AM.
 
 URL: https://github.com/wp-cli/handbook/tree/main/commands 
 
