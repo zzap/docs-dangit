@@ -12,7 +12,7 @@ const App = () => {
 		</Helmet>
 
 					<>
-						<h1 className="bg-pink-100">docs_dangit: A search engine for WordPress developers</h1>
+						<h1 className="">docs_dangit: A search engine for WordPress developers</h1>
 					</>
 
 				<>
