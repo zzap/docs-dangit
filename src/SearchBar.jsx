@@ -8,12 +8,12 @@ const capitalPDangit = (query) => {
 
 const SearchBar = () => {
   const { search, setSearch, setSearchHistory } = useSearchStore();
-  const [s, setS] = useState("")
+  const [s, setS] = useState("");
   const handleSearch = (query) => setS(capitalPDangit(query));
 
   useEffect(() => {
     const id = setTimeout(() => {
-        setSearch(s);
+      setSearch(s);
     }, 300);
     return () => clearTimeout(id);
   }, [s, setSearch]);
