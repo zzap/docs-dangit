@@ -66,10 +66,21 @@ const App = () => {
         <div className="w-full max-w-7xl mx-auto flex-grow">
           <SearchBar />
         </div>
-      <footer className="mx-auto max-w-7xl w-full">
-      <p><a className="underline" href="https://www.cloudfest.com/a-search-engine-for-wordpress-developers">CloudFest hackathon 2023 project</a> | <a className="underline" href="https://github.com/zzap/docs-dangit">GitHub repository</a></p>
-      <p>&copy; 2023 Cloudfest Hackathon Cool Kids</p>
-    </footer>
+        <footer className="mx-auto max-w-7xl w-full">
+          <p>
+            <a
+              className="underline"
+              href="https://www.cloudfest.com/a-search-engine-for-wordpress-developers"
+            >
+              CloudFest hackathon 2023 project
+            </a>{" "}
+            |{" "}
+            <a className="underline" href="https://github.com/zzap/docs-dangit">
+              GitHub repository
+            </a>
+          </p>
+          <p>&copy; 2023 Cloudfest Hackathon Cool Kids</p>
+        </footer>
       </main>
     </div>
   );
