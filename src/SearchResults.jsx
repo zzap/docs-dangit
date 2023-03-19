@@ -3,23 +3,31 @@ import Highlight from "react-highlight";
 import useSWR from "swr";
 import { CopyIcon } from "./svg";
 
-const SearchResults = (props) => {
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const url = "https://heigl.docs-dang.it:8443/api/docs";
+const useSearch = (query) => {
+  const fullUrl = query ? `${url}?search=${query}` : url;
+  const { data, error } = useSWR(fullUrl, fetcher);
+  return {
+    data,
+    error,
+    loading: !data && !error,
+  };
+};
+
+const SearchResults = ({ query }) => {
   const [selectedResult, selectResult] = useState(null);
   const [copyStatus, setCopyStatus] = useState("");
-
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-  let apiUrl = `https://heigl.docs-dang.it:8443/api/docs?search=${props?.query}`;
-  // fetch data
-  const { data, error } = useSWR(apiUrl, fetcher);
+  const { data, error, loading } = useSearch(query);
 
   const copyToClipboard = async (text) => {
     return navigator.clipboard.writeText(text);
   };
 
-  if (error)
+  if (error) {
     return <p className="mt-8 text-gray-600">Failed to load, dangit.</p>;
-  if (!data) return <p className="mt-8 text-gray-600">Loading...</p>;
+  }
+  if (loading) return <p className="mt-8 text-gray-600">Loading...</p>;
 
   if (null !== selectedResult && data && data[selectedResult]) {
     return (
@@ -74,11 +82,11 @@ const SearchResults = (props) => {
 
   return (
     <div className="results-wrap mt-8 container">
-      {props?.query &&
-        (props?.query.length < 3 ? (
+      {query &&
+        (query.length < 3 ? (
           <p className="text-gray-600">Keep typing...</p>
         ) : (
-          <h2 className="font-bold">Search results for: {props?.query}</h2>
+          <h2 className="font-bold">Search results for: {query}</h2>
         ))}
       {data && data?.length > 0 && (
         <div className="grid gap-4 mt-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
