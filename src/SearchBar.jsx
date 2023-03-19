@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SearchResults from "./SearchResults";
 import { useSearchStore } from "./state/search";
 
@@ -8,9 +8,15 @@ const capitalPDangit = (query) => {
 
 const SearchBar = () => {
   const { search, setSearch, setSearchHistory } = useSearchStore();
-  const handleSearch = (query) => setSearch(capitalPDangit(query));
+  const [s, setS] = useState("")
+  const handleSearch = (query) => setS(capitalPDangit(query));
 
-  useEffect(() => {}, [search]);
+  useEffect(() => {
+    const id = setTimeout(() => {
+        setSearch(s);
+    }, 300);
+    return () => clearTimeout(id);
+  }, [s, setSearch]);
 
   useEffect(() => {
     // Sets the search into the history after a 2s debounce
@@ -27,7 +33,7 @@ const SearchBar = () => {
           className="w-full rounded-full py-4 px-6 border-2 font-mono"
           type="search"
           name="s"
-          value={search}
+          value={s}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search for a WordPress function, hook, or class."
         />
