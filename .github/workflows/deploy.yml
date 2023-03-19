@@ -35,29 +35,12 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install dependencies
         run: npm ci
-
-      - name: Attempt to fix linting errors
-        run: |
-            npx eslint --fix .
-            npx prettier --write .
-        env:
-            CI: true
-
-      - name: Commit and push if files have changed
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-            commit_message: 'chore: lint and format'
-            commit_options: '--no-verify'
-            commit_user_name: 'GitHub Actions'
-            commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-            commit_author: 'GitHub Actions <github-actions[bot]@users.noreply.github.com>'
-
-      - name: Build
-        run: npm run build
       - name: Lint
         run: |
             # Don't deploy if there are linting errors
-            npx eslint --max-warnings 0 .
+            npx eslint --max-warnings 0 ./src
+      - name: Build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

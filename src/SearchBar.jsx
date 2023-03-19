@@ -12,7 +12,7 @@ const SearchBar = () => {
     <div className="search-bar-wrap">
       <form action="/" method="post">
         <input
-          className="form-control"
+          className="w-full rounded-full p-4"
           type="search"
           name="s"
           value={searchQuery}
