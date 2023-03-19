@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import "./main.css";
 import SearchBar from "./SearchBar";
 import { DocsDangitIcon } from "./svg";
 
+const getFaviconPath = (isDarkMode = false) => {
+  return `./favicon-${isDarkMode ? "light" : "dark"}.png`;
+};
+
 const App = () => {
+  const [faviconHref, setFaviconHref] = useState("./favicon-light.png");
+
+  useEffect(() => {
+    const matcher = window.matchMedia("(prefers-color-scheme: dark)");
+
+    setFaviconHref(getFaviconPath(matcher.matches));
+
+    matcher.onchange = () => setFaviconHref(getFaviconPath(matcher.matches));
+  }, [faviconHref]);
+
   return (
     <div className="App">
       <Helmet>
+        <link rel="icon" href={faviconHref} />
         <meta
           name="description"
           content="A search engine for WordPress developers"
