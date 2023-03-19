@@ -20,7 +20,7 @@ const App = () => {
   }, [faviconHref]);
 
   return (
-    <div className="App">
+    <div className="App flex flex-col min-h-screen">
       <Helmet>
         <link rel="icon" href={faviconHref} />
         <meta
@@ -62,10 +62,14 @@ const App = () => {
         </div>
       </header>
 
-      <main className="p-8">
-        <div className="w-full max-w-7xl mx-auto">
+      <main className="p-8 flex gap-4 flex-col flex-grow items-between">
+        <div className="w-full max-w-7xl mx-auto flex-grow">
           <SearchBar />
         </div>
+      <footer className="mx-auto max-w-7xl w-full">
+      <p><a className="underline" href="https://www.cloudfest.com/a-search-engine-for-wordpress-developers">CloudFest hackathon 2023 project</a> | <a className="underline" href="https://github.com/zzap/docs-dangit">GitHub repository</a></p>
+      <p>&copy; 2023 Cloudfest Hackathon Cool Kids</p>
+    </footer>
       </main>
     </div>
   );
