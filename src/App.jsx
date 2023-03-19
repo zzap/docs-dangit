@@ -15,7 +15,7 @@ const App = () => {
         <title>docs_dangit</title>
       </Helmet>
 
-      <header className="bg-blue-700 text-white flex p-8">
+            <header className="bg-blue-700 text-white flex p-8">
         <div className="max-w-7xl flex justify-items-start">
           <DocsDangitIcon className="w-8 h-8 text-white mr-4" />
           <h1 className="mr-4">docs_dangit</h1>
