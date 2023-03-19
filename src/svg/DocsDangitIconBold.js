@@ -8,13 +8,7 @@ export default function DocsDangitIcon(props) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <circle
-        cx="110"
-        cy="110"
-        r="95"
-        stroke="currentColor"
-        strokeWidth="30"
-      />
+      <circle cx="110" cy="110" r="95" stroke="currentColor" strokeWidth="30" />
       <path
         d="M235.476 256.689C241.379 262.501 250.876 262.427 256.689 256.524C262.501 250.621 262.427 241.124 256.524 235.312L235.476 256.689ZM170.476 192.689L235.476 256.689L256.524 235.312L191.524 171.311L170.476 192.689Z"
         fill="currentColor"
