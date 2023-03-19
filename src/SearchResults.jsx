@@ -16,7 +16,12 @@ const SearchResults = (props) => {
 
   return (
     <div className="results-wrap mt-8">
-      <h2>Search results for: {props?.query}</h2>
+      {props?.query &&
+        (props?.query.length < 3 ? (
+          <p className="text-gray-600">Keep typing...</p>
+        ) : (
+          <h2>Search results for: {props?.query}</h2>
+        ))}
       {data && data?.length > 0 && props?.query && props?.query.length > 2 && (
         <div className="grid grid-cols-3 gap-4 mt-4">
           {console.log(data)}
