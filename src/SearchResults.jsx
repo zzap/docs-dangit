@@ -14,6 +14,11 @@ const SearchResults = ({ query }) => {
   const [copyStatus, setCopyStatus] = useState("");
   const { data, error, loading } = useSearch(query);
 
+  const codeSnippets = data?.reduce((accumulator, result) => {
+    accumulator.push(...result.code_snippet);
+    return accumulator;
+  }, []);
+
   const copyToClipboard = async (text) => {
     return navigator.clipboard.writeText(text);
   };
@@ -23,7 +28,7 @@ const SearchResults = ({ query }) => {
   }
   if (loading) return <p className="mt-8 text-gray-600">Loading...</p>;
 
-  if (null !== selectedResult && data && data[selectedResult]) {
+  if (null !== selectedResult && codeSnippets && codeSnippets[selectedResult]) {
     return (
       <div className="results-wrap mt-8">
         <div className="flex justify-between mb-4">
@@ -35,7 +40,7 @@ const SearchResults = ({ query }) => {
           </button>
           <button
             onClick={() => {
-              copyToClipboard(data[selectedResult]?.content?.rendered)
+              copyToClipboard(codeSnippets[selectedResult]?.content?.rendered)
                 .then(() => {
                   setCopyStatus("Copied!");
                   setTimeout(() => setCopyStatus(""), 2000);
@@ -53,26 +58,17 @@ const SearchResults = ({ query }) => {
           </button>
         </div>
 
-        {data[selectedResult]?.code_snippet &&
-          data[selectedResult]?.code_snippet.length > 0 && (
-            <>
-              {data[selectedResult]?.code_snippet.map((snipet, i) => {
-                return (
-                  <div className="mb-4">
-                    <Highlight
-                      className={
-                        snipet?.language +
-                        " rounded-xl p-4 shadow font-mono text-sm"
-                      }
-                      key={i}
-                    >
-                      {decodeHTMLEntities(snipet?.code)}
-                    </Highlight>
-                  </div>
-                );
-              })}
-            </>
-          )}
+        <div className="mb-4">
+          <Highlight
+            className={
+              codeSnippets[selectedResult]?.language +
+              " rounded-xl p-4 shadow font-mono text-sm"
+            }
+            key={selectedResult}
+          >
+            {decodeHTMLEntities(codeSnippets[selectedResult]?.code)}
+          </Highlight>
+        </div>
       </div>
     );
   }
@@ -85,32 +81,21 @@ const SearchResults = ({ query }) => {
         ) : (
           <h2 className="font-bold">Search results for: {query}</h2>
         ))}
-      {data && data?.length > 0 && (
-        <div className="grid gap-4 mt-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {console.log(data)}
-          {data.map((item, i) => {
+      {codeSnippets && codeSnippets?.length > 0 && (
+        <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {codeSnippets.map((item, index) => {
             return (
-              <>
-                {item?.code_snippet && item?.code_snippet.length > 0 && (
-                  <>
-                    {item?.code_snippet.map((snipet, i) => {
-                      return (
-                        <div onClick={() => selectResult(i)} key={i}>
-                          <Highlight
-                            className={
-                              snipet?.language +
-                              " rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
-                            }
-                            key={i}
-                          >
-                            {decodeHTMLEntities(snipet?.code)}
-                          </Highlight>
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-              </>
+              <div onClick={() => selectResult(index)} key={index}>
+                <Highlight
+                  className={
+                    item?.language +
+                    " rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
+                  }
+                  key={index}
+                >
+                  {decodeHTMLEntities(item?.code)}
+                </Highlight>
+              </div>
             );
           })}
         </div>
