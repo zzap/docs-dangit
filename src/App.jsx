@@ -16,30 +16,32 @@ const App = () => {
       </Helmet>
 
       <header className="bg-blue-700 text-white flex p-8">
-		<div className="w-full max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap justify-between items-center gap-4 xl:gap-0">
-			<div className="flex flex-wrap md:flex-nowrap justify-items-start items-center gap-4">
-				<DocsDangitIcon className="w-8 h-8 text-white" />
-				<h1 className="mr-2 font-bold">docs_dangit</h1>
-				<span className="">A search engine for WordPress developers</span>
-			</div>
+        <div className="w-full max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap justify-between items-center gap-4 xl:gap-0">
+          <div className="flex flex-wrap md:flex-nowrap justify-items-start items-center gap-4">
+            <DocsDangitIcon className="w-8 h-8 text-white" />
+            <h1 className="mr-2 font-bold">docs_dangit</h1>
+            <span className="">A search engine for WordPress developers</span>
+          </div>
 
-			<div className="flex flex-wrap lg:flex-nowrap gap-3">
-				<a 
-				href="https://developer.wordpress.org/reference" 
-				target="_blank" 
-				rel="noreferrer"
-				className="underline">
-					WordPress.org Code Reference
-				</a>
-				<a 
-				href="https://developer.wordpress.org/cli/commands/"
-				target="_blank" 
-				rel="noreferrer"
-				className="underline">
-					WP-CLI Commands
-				</a>
-			</div>
-		</div>
+          <div className="flex flex-wrap lg:flex-nowrap gap-3">
+            <a
+              href="https://developer.wordpress.org/reference"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              WordPress.org Code Reference
+            </a>
+            <a
+              href="https://developer.wordpress.org/cli/commands/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              WP-CLI Commands
+            </a>
+          </div>
+        </div>
       </header>
 
       <main className="p-8">
