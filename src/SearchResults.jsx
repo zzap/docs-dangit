@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Highlight from "react-highlight";
 import useSWR from "swr";
 
 const SearchResults = (props) => {
+	const [selectedResult, selectResult] = useState(null);
 	const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 	// fetch data
@@ -11,8 +12,25 @@ const SearchResults = (props) => {
 		fetcher
 	);
 
-	if (error) return <p className="text-gray-600">Failed to load, dangit.</p>;
-	if (!data) return <p className="text-gray-600">Loading...</p>;
+	if (error)
+		return <p className="mt-8 text-gray-600">Failed to load, dangit.</p>;
+	if (!data) return <p className="mt-8 text-gray-600">Loading...</p>;
+
+	if (null !== selectedResult && data && data[selectedResult]) {
+		return (
+			<div className="results-wrap mt-8">
+				<button
+					onClick={() => selectResult(null)}
+					className="mb-4 text-blue-700"
+				>
+					← Back
+				</button>
+				<Highlight className="html rounded-xl p-4 shadow font-mono text-sm">
+					{data[selectedResult]?.content?.rendered}
+				</Highlight>
+			</div>
+		);
+	}
 
 	return (
 		<div className="results-wrap mt-8">
@@ -32,12 +50,11 @@ const SearchResults = (props) => {
 						{console.log(data)}
 						{data.map((item, i) => {
 							return (
-								<Highlight
-									key={i}
-									className="html rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap"
-								>
-									{item?.content?.rendered}
-								</Highlight>
+								<div onClick={() => selectResult(i)}>
+									<Highlight className="html rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out">
+										{item?.content?.rendered}
+									</Highlight>
+								</div>
 							);
 						})}
 					</div>
