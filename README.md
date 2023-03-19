@@ -54,7 +54,7 @@ Storage is in mySQL with a full-text index and [a small API](https://github.com/
 - Version - source version, e.g. WP 6.2, WP-CLI 2.7 etc.
 - Command tags - the command/function found in the snippet, e.g. update_term_meta.
 - Tags - general taxonomy based on various criteria, e.g. WordPress (based on CMS), Laravel (based on the framework) etc. 
-- Language - IETF language tag of the source, e.g. en-US.
+- Language - [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) of the source, e.g. en-US.
 - Codelang tags - Tag for the code language, e.g. PHP, JavaScript etc.
 
 ### Frontend
