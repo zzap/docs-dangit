@@ -21,7 +21,7 @@ const SearchBar = () => {
           name="s"
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
-          placeholder="Start typing..."
+          placeholder="Search for a WordPress function, hook, or class."
         />
       </form>
 
