@@ -6,7 +6,7 @@ const capitalPDangit = (query) => {
 };
 
 const SearchBar = () => {
-  const { search, setSearch } = useSearchStore()
+  const { search, setSearch } = useSearchStore();
   const handleSearch = (query) => setSearch(capitalPDangit(query));
 
   return (

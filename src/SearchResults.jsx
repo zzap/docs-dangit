@@ -4,17 +4,16 @@ import useSWR from "swr";
 import { CopyIcon } from "./svg";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const url = 'https://heigl.docs-dang.it:8443/api/docs'
+const url = "https://heigl.docs-dang.it:8443/api/docs";
 const useSearch = (query) => {
-    const fullUrl = query ? `${url}?search=${query}` : url;
-    const { data, error } = useSWR(fullUrl, fetcher);
-    return {
-        data,
-        error,
-        loading: !data && !error,
-    }
-}
-
+  const fullUrl = query ? `${url}?search=${query}` : url;
+  const { data, error } = useSWR(fullUrl, fetcher);
+  return {
+    data,
+    error,
+    loading: !data && !error,
+  };
+};
 
 const SearchResults = ({ query }) => {
   const [selectedResult, selectResult] = useState(null);
@@ -26,7 +25,7 @@ const SearchResults = ({ query }) => {
   };
 
   if (error) {
-      return <p className="mt-8 text-gray-600">Failed to load, dangit.</p>;
+    return <p className="mt-8 text-gray-600">Failed to load, dangit.</p>;
   }
   if (loading) return <p className="mt-8 text-gray-600">Loading...</p>;
 
