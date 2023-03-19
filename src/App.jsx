@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import "./main.css";
 import SearchBar from "./SearchBar";
-import { DocsDangitIcon } from "./svg";
+import { DocsDangitIconBold } from "./svg";
 
 const getFaviconPath = (isDarkMode = false) => {
 	return `./favicon-${isDarkMode ? "light" : "dark"}.png`;
@@ -34,7 +34,7 @@ const App = () => {
 			<header className="bg-blue-700 text-white flex p-8">
 				<div className="w-full max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap justify-between items-center gap-4 xl:gap-0">
 					<div className="flex flex-wrap md:flex-nowrap justify-items-start items-center gap-4">
-						<DocsDangitIcon className="w-8 h-8 text-white" />
+						<DocsDangitIconBold className="w-8 h-8 text-white" />
 						<h1 className="mr-2 font-bold">docs_dangit</h1>
 						<span className="font-mono ml-4 mb-1 text-sm self-end">
 							A search engine for WordPress developers
