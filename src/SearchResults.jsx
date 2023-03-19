@@ -85,7 +85,7 @@ const SearchResults = (props) => {
           {console.log(data)}
           {data.map((item, i) => {
             return (
-              < >
+              <>
                 {item?.code_snippet && item?.code_snippet.length > 0 && (
                     <>
                         {item?.code_snippet.map( (snipet, i) => {
@@ -99,8 +99,6 @@ const SearchResults = (props) => {
                         })}
                     </>
                 )}
-
-                
               </>
             );
           })}
