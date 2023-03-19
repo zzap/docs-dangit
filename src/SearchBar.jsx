@@ -5,7 +5,11 @@ const SearchBar = () => {
 	const [searchQuery, setSearchQuery] = useState("");
 
 	const handleSearch = (query) => {
-		setSearchQuery(query);
+		setSearchQuery(capitalPDangit(query));
+	};
+
+	const capitalPDangit = (query) => {
+		return query.replace(/Wordpress/i, "WordPress");
 	};
 
 	return (
