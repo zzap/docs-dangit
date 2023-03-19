@@ -10,17 +10,15 @@ const SearchBar = () => {
   const { search, setSearch, setSearchHistory } = useSearchStore();
   const handleSearch = (query) => setSearch(capitalPDangit(query));
 
-  useEffect(() => {
-
-  }, [search])
+  useEffect(() => {}, [search]);
 
   useEffect(() => {
     // Sets the search into the history after a 2s debounce
     const id = setTimeout(() => {
-        search && setSearchHistory(search);
-    }, 2000)
-    return () => clearTimeout(id)
-  }, [search, setSearchHistory])
+      search && setSearchHistory(search);
+    }, 2000);
+    return () => clearTimeout(id);
+  }, [search, setSearchHistory]);
 
   return (
     <div className="search-bar-wrap">
