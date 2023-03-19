@@ -3,6 +3,12 @@ import Highlight from "react-highlight";
 import useSWR from "swr";
 import { CopyIcon } from "./svg";
 
+const decodeHTMLEntities = (text) => {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
+}
+
 const SearchResults = (props) => {
   const [selectedResult, selectResult] = useState(null);
   const [copyStatus, setCopyStatus] = useState("");
@@ -60,8 +66,9 @@ const SearchResults = (props) => {
                     <Highlight
                       className="html rounded-xl p-4 shadow font-mono text-sm"
                       key={i}
+                      innerHTML={true}
                     >
-                      {snipet?.code}
+                      {decodeHTMLEntities(snipet?.code)}
                     </Highlight>
                   </div>
                 );
@@ -95,9 +102,7 @@ const SearchResults = (props) => {
                             className="html rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
                             key={i}
                           >
-                            <div
-                              dangerouslySetInnerHTML={{ __html: snipet?.code }}
-                            />
+                            {decodeHTMLEntities(snipet?.code)}
                           </Highlight>
                         </div>
                       );
