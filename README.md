@@ -62,7 +62,7 @@ Frontend is built on [React.js](https://react.dev/) with [Tailwind CSS](https://
 
 ## License 
 
-docs_dangit is a free software, and complete code inside it is released under the terms of the GNU General Public License version 3 or later. This does not apply to Google fonts and other 3rd party assets - their original license applies. 
+docs_dangit is a free software, and complete code inside it is released under the terms of the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html) version 3 or later. This does not apply to Google fonts and other 3rd party assets - their original license applies. 
 
 ------------------------------------------------
 
