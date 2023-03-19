@@ -16,10 +16,17 @@ const App = () => {
       </Helmet>
 
       <header className="bg-blue-700 text-white flex p-8">
-		<div className="max-w-7xl flex justify-items-start items-center">
-			<DocsDangitIcon className="w-8 h-8 text-white mr-4" />
-			<h1 className="mr-6">docs_dangit</h1>
-			<span className="">A search engine for WordPress developers</span>
+		<div className="w-full max-w-7xl mx-auto xl:flex justify-between items-center">
+			<div className="md:flex justify-items-start items-center gap-4">
+				<DocsDangitIcon className="w-8 h-8 text-white" />
+				<h1 className="mr-2">docs_dangit</h1>
+				<span className="">A search engine for WordPress developers</span>
+			</div>
+
+			<div className="md:flex gap-4">
+				<a href="https://developer.wordpress.org/reference">WordPress.org Code Reference</a>
+				<a href="https://developer.wordpress.org/cli/commands/">WP-CLI Commands</a>
+			</div>
 		</div>
       </header>
 
