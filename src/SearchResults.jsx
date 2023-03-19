@@ -48,7 +48,7 @@ const SearchResults = (props) => {
             disabled={copyStatus !== ""}
             className="bg-gray-100 hover:not(:disabled):bg-gray-200 rounded-lg py-2 px-3"
           >
-            <CopyIcon className="w-6 inline" />
+            <CopyIcon className="w-6 inline mr-2" />
             {copyStatus === "" ? "Copy code sample" : copyStatus}
           </button>
         </div>
