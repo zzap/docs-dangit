@@ -24,7 +24,7 @@ const SearchResults = (props) => {
             return (
               <Highlight
                 key={i}
-                className="html rounded-xl p-4 border shadow font-mono h-60 text-sm overflow-x-hidden whitespace-pre-wrap"
+                className="html rounded-xl p-4 border shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap"
               >
                 {item?.content?.rendered}
               </Highlight>
