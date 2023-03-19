@@ -1,1 +1,1 @@
-export { default as DocsDangitIcon } from './DocsDangitIcon'
+export { default as DocsDangitIcon } from "./DocsDangitIcon";
