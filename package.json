@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "canvas-confetti": "^1.6.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^8.0.1",
@@ -10,6 +11,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-highlight": "^0.15.0",
+    "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "swr": "^2.1.0",
     "web-vitals": "^2.1.4",
