@@ -30,7 +30,9 @@ const App = () => {
 		</div>
       </header>
 
-      <SearchBar />
+      <main className="p-8">
+        <SearchBar />
+      </main>
     </div>
   );
 };
