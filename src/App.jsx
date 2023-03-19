@@ -34,13 +34,14 @@ const App = () => {
         <div className="w-full max-w-7xl mx-auto flex flex-wrap lg:flex-nowrap justify-between items-center gap-4 xl:gap-0">
           <div className="flex flex-wrap md:flex-nowrap justify-items-start items-center gap-4">
             <DocsDangitIconBold className="w-8 h-8 text-white" />
-            <h1 className="mr-2 font-bold">docs_dangit</h1>
-            <span className="font-mono lg:ml-4 mb-1 text-sm self-end">
+            <h1 className="font-bold">docs_dangit</h1>
+            <span className="font-mono lg:ml-2 mb-1 text-sm self-end">
               A search engine for WordPress developers
             </span>
           </div>
 
-          <div className="flex flex-wrap lg:flex-nowrap gap-3">
+          <div className="flex flex-wrap lg:flex-nowrap gap-3 font-mono text-sm">
+            <span className="font-medium">Sources:</span>
             <a
               href="https://developer.wordpress.org/reference"
               target="_blank"
