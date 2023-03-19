@@ -23,7 +23,9 @@ const App = () => {
         </div>
       </header>
 
-      <SearchBar />
+      <main className="p-8 max-w-7xl">
+        <SearchBar />
+      </main>
     </div>
   );
 };
