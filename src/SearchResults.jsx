@@ -86,7 +86,7 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
               <div>
                 <button
                   type="button"
-                  className="relative rounded-xl text-left w-full overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105 hover:shadow-black/40 cursor-pointer focus:shadow-lg focus:scale-105 focus:shadow-black/40 border-0 bg-[#282c34] focus:outline-none focus:ring focus:ring-offset-1 ring-offset-white ring-blue-600"
+                  className="relative w-full rounded-xl text-left overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105 hover:shadow-black/40 cursor-pointer focus:shadow-lg focus:scale-105 focus:shadow-black/40 border-0 bg-[#282c34] focus:outline-none focus:ring focus:ring-offset-1 ring-offset-white ring-blue-600 group"
                   onClick={() => selectResult(index)}
                   key={index.code}
                 >
@@ -95,7 +95,7 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
                   >
                     {decodeHTMLEntities(result?.code)}
                   </Highlight>
-                  <div className="absolute h-28 bottom-0 left-0 w-full bg-gradient-to-t from-[#282c34] to-transparent pointer-events-none" />
+                  <div className="absolute h-28 bottom-0 left-0 w-full bg-gradient-to-t from-[#282c34] to-transparent pointer-events-none group-hover:opacity-0 group-focus:opacity-0 transition-all duration-200 ease-in-out" />
                 </button>
                 <div className="mt-2 px-1 text-xs">
                   <ResultMeta {...result} />

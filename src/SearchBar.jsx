@@ -31,7 +31,7 @@ const SearchBar = () => {
 
   return (
     <div className="search-bar-wrap">
-      <form action="/" method="get" onSubmit={(e) => e.preventDefault()}>
+      <form method="get" onSubmit={(e) => e.preventDefault()}>
         <input
           className="w-full rounded-full py-4 px-6 border-2 font-mono"
           type="search"
@@ -39,7 +39,7 @@ const SearchBar = () => {
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search for a WordPress function, hook, or class."
-          autofocus="autofocus"
+          autoFocus
         />
       </form>
 
