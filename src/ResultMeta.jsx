@@ -4,20 +4,17 @@ const ResultMeta = ({ source, code_creator, title, url }) => {
       case "reference":
       case "wordpress_reference":
         return "WP Code Reference";
-        break;
       case "wordpress_dev_reference":
         return "WP Make Blog";
-        break;
       case "wp-cli":
       case "wpcli":
         return "WP-CLI Docs";
-        break;
       case "php":
       case "php_reference":
         return "PHP Docs";
-        break;
+      default:
+        return source;
     }
-    return source;
   };
 
   return (
