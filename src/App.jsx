@@ -72,7 +72,7 @@ const App = () => {
         <div className="w-full max-w-7xl mx-auto flex-grow">
           <SearchBar />
         </div>
-        <footer className="mx-auto max-w-7xl w-full text-gray-700">
+        <footer className="mx-auto max-w-7xl w-full text-gray-700 flex justify-between">
           <p>
             <a
               className="underline hover:text-black"
@@ -93,14 +93,14 @@ const App = () => {
             <button
               id="cool-kids-button"
               aria-hidden={true}
-              className="cursor-default"
+              className="cursor-text"
               onClick={() => {
                 confetti({
                   particleCount: 2,
                   decay: 0.7,
                   gravity: 0.1,
                   startVelocity: 35,
-                  origin: { x: 0.25, y: 0.9 },
+                  origin: { x: 0.84, y: 0.9 },
                 });
               }}
             >
