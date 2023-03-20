@@ -17,12 +17,12 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
     return navigator.clipboard.writeText(text);
   };
 
+  if (!query) return null;
+
   if (error) {
     return <p className="mt-8 text-gray-600">Failed to load, dangit.</p>;
   }
   if (loading) return <p className="mt-8 text-gray-600">Loading...</p>;
-
-  if (!query) return null;
 
   if (null !== selectedResult && data && data[selectedResult]) {
     return (
