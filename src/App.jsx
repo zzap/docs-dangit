@@ -64,7 +64,7 @@ const App = () => {
             >
               WP-CLI Commands
             </a>
-			<a
+            <a
               href="https://www.php.net/manual/en/"
               target="_blank"
               rel="noreferrer"
