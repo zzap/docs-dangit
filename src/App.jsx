@@ -97,9 +97,13 @@ const App = () => {
               onClick={() => {
                 // get button x and y position
                 const button = document.getElementById("cool-kids-button");
-                const {x: bx, y: by, width: bw} = button.getBoundingClientRect();
+                const {
+                  x: bx,
+                  y: by,
+                  width: bw,
+                } = button.getBoundingClientRect();
                 // convert x, y to 0 to 1 with 1 being 100% of the screen
-                const x = (bx + (bw / 2)) / window.innerWidth
+                const x = (bx + bw / 2) / window.innerWidth;
                 const y = by / window.innerHeight;
                 confetti({
                   particleCount: 2,
