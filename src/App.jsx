@@ -88,7 +88,7 @@ const App = () => {
         <div className="w-full max-w-7xl mx-auto flex-grow">
           <SearchBar />
         </div>
-        <footer className="mx-auto mt-8 max-w-7xl w-full text-gray-700 flex justify-between">
+        <footer className="mx-auto mt-8 max-w-7xl w-full text-gray-700 flex flex-col lg:flex-row justify-between">
           <p>
             <a
               className="underline hover:text-black"
@@ -108,7 +108,7 @@ const App = () => {
               GitHub repository
             </a>
           </p>
-          <p className="flex gap-1">
+          <p className="flex gap-1 mt-2 lg:mt-0">
             &copy; 2023 Cloudfest Hackathon{" "}
             <button
               id="cool-kids-button"
