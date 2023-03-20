@@ -9,10 +9,10 @@ const capitalPDangit = (query) => {
 
 const types = {
   "": "All",
-  wordpress_reference: "WordPress Reference",
-  wordpress_dev_reference: "WordPress Dev Notes",
-  wpcli: "WP CLI",
-  php_reference: "PHP.net",
+  wordpress_reference: "WordPress reference",
+  wordpress_dev_reference: "WordPress dev notes",
+  wpcli: "WP-CLI",
+  php_reference: "PHP reference",
 };
 
 const SearchBar = () => {
