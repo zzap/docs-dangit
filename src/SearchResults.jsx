@@ -3,6 +3,7 @@ import Highlight from "react-highlight";
 import { CopyIcon } from "./svg";
 import { useSearch } from "./hooks/useSearch";
 import ResultMeta from "./ResultMeta";
+import LanguageTag from "./LanguageTag";
 
 const decodeHTMLEntities = (text) => {
   const textArea = document.createElement("textarea");
@@ -98,9 +99,11 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
                   >
                     {decodeHTMLEntities(result?.code)}
                   </Highlight>
-                  <div className="absolute h-28 bottom-0 left-0 w-full bg-gradient-to-t from-[#282c34] to-transparent pointer-events-none group-hover:opacity-0 group-focus:opacity-0 transition-all duration-200 ease-in-out" />
+                  <div className="absolute h-28 bottom-0 left-0 w-full bg-gradient-to-t from-[#282c34] to-transparent pointer-events-none group-hover:opacity-0 group-focus:opacity-0 transition-all duration-200 ease-in-out">
+                    <LanguageTag language={result?.code_language} />
+                  </div>
                 </button>
-                <div className="mt-2 px-1 text-xs">
+                <div className="mt-2 px-1 text-sm">
                   <ResultMeta {...result} />
                 </div>
               </div>
