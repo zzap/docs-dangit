@@ -5,6 +5,9 @@ const ResultMeta = ({ source, code_creator, title, url }) => {
       case "wordpress_reference":
         return "WP Code Reference";
         break;
+      case "wordpress_dev_reference":
+        return "WP Make Blog";
+        break;
       case "wp-cli":
       case "wpcli":
         return "WP-CLI Docs";
