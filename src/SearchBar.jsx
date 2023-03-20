@@ -64,7 +64,7 @@ const SearchBar = (props) => {
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={(e) => e.target.select()}
           onMouseUp={(e) => e.preventDefault()}
-          placeholder="Type in your keywords..."
+          placeholder="Search for code samples..."
           autoFocus
           spellCheck="false"
         />
