@@ -7,7 +7,7 @@ Website: https://docs-dang.it/
 This repo contains the frontend code for [the project website](https://docs-dang.it/). Code for the backend is in [docs_dangit-the-beast](https://github.com/zzap/docs_dangit-the-beast) repo.
 
 ## Participants:
-- Jessica Lyschik - https://github.com/luminuu - design
+- Jessica Lyschik - https://github.com/luminuu - design/frontend
 - Dhanuka Nuwan - https://github.com/dhanukanuwan - frontend
 - Sven Wagener - https://github.com/mahype - parser/backend
 - David Beja - https://github.com/dbeja - parser/backend
