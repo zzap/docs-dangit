@@ -82,17 +82,14 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
         <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {data.map((item, index) => {
             return (
-              <div onClick={() => selectResult(index)} key={index}>
+              <button type="button" className="relative rounded-xl text-left overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105 hover:shadow-black/40 cursor-pointer focus:shadow-lg focus:scale-105 focus:shadow-black/40 border-0 bg-[#282c34] focus:outline-none focus:ring focus:ring-offset-1 ring-offset-white ring-blue-600" onClick={() => selectResult(index)} key={index.code}>
                 <Highlight
-                  className={
-                    item?.code_language +
-                    " rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
-                  }
-                  key={index}
+                  className={`${item?.code_language} p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap`}
                 >
                   {decodeHTMLEntities(item?.code)}
                 </Highlight>
-              </div>
+                <div className="absolute h-28 bottom-0 left-0 w-full bg-gradient-to-t from-[#282c34] to-transparent pointer-events-none" />
+              </button>
             );
           })}
         </div>
