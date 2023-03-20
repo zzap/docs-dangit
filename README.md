@@ -20,7 +20,9 @@ This repo contains the frontend code for [the project website](https://docs-dang
 
 ## Sources
 
-### Code reference
+Sources are listed below in the order they have been added to the project.
+
+### WordPress code reference
 
 The Code reference handbook is partly generated from the code. Most of the code samples are in the User Contributed Notes section, which are comments ([example](https://developer.wordpress.org/reference/classes/wp_query/#user-contributed-notes)). 
 
@@ -32,7 +34,7 @@ We use [`wp cli cmd-dump`](https://github.com/wp-cli/wp-cli/blob/main/php/comman
 
 URL: https://github.com/wp-cli/handbook/tree/main/commands 
 
-### PHP.NET
+### PHP code reference
 
 Official PHP documentation, hosted on https://github.com/php/doc-en.
 
@@ -45,7 +47,7 @@ URL: https://www.php.net/docs.php
 Parsers are built on top of [Symfony Console](https://symfony.com/doc/current/components/console.html) component. At the moment of building the tool (CloudFest hackathon 2023), there are two parsers:
 - [WordPress code reference](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/WordPress_Docs.php) 
 - [WP-CLI](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/WP_CLI.php)
-- [PHP.NET](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/PHP_Docs.php)
+- [PHP code reference](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/PHP_Docs.php)
 
 Storage is in mySQL with a full-text index and [a small API](https://github.com/zzap/docs_dangit-the-beast/tree/main/backend) built with [Laminas](https://docs.laminas.dev/) and [Mezzio](https://docs.mezzio.dev/) frameworks. API is private for now but could be made public in the future given the proper setup and storage financing is provided.
 
