@@ -82,7 +82,12 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
         <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {data.map((item, index) => {
             return (
-              <button type="button" className="relative rounded-xl text-left overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105 hover:shadow-black/40 cursor-pointer focus:shadow-lg focus:scale-105 focus:shadow-black/40 border-0 bg-[#282c34] focus:outline-none focus:ring focus:ring-offset-1 ring-offset-white ring-blue-600" onClick={() => selectResult(index)} key={index.code}>
+              <button
+                type="button"
+                className="relative rounded-xl text-left overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105 hover:shadow-black/40 cursor-pointer focus:shadow-lg focus:scale-105 focus:shadow-black/40 border-0 bg-[#282c34] focus:outline-none focus:ring focus:ring-offset-1 ring-offset-white ring-blue-600"
+                onClick={() => selectResult(index)}
+                key={index.code}
+              >
                 <Highlight
                   className={`${item?.code_language} p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap`}
                 >
