@@ -56,7 +56,7 @@ const App = () => {
             >
               WP Code Reference
             </a>
-			<a
+            <a
               href="https://make.wordpress.org/core/tag/dev-notes/"
               target="_blank"
               rel="noreferrer"

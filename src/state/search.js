@@ -7,8 +7,11 @@ export const useSearchStore = create(
       search: "",
       searchHistory: [],
       setSearch: (search) => set({ search }),
-      setSearchHistory: (search) =>
-        set({ searchHistory: [search, ...get().searchHistory.slice(-9)] }),
+      setSearchHistory: (search) => {
+        // if it already exists, dont add it
+        if (get().searchHistory.includes(search)) return;
+        set({ searchHistory: [search, ...get().searchHistory.slice(-9)] });
+      },
     }),
     {
       name: "search-history",

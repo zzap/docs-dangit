@@ -57,8 +57,10 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
         </div>
 
         <div className="mb-4">
-          <div className="my-4">
-            <ResultMeta {...data[selectedResult]} />
+          <div className="my-4 flex justify-between">
+            <div>
+              <ResultMeta {...data[selectedResult]} />
+            </div>
           </div>
           <Highlight
             className={
@@ -103,7 +105,7 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
                     <LanguageTag language={result?.code_language} />
                   </div>
                 </button>
-                <div className="mt-2 px-1 text-sm">
+                <div className="mt-2 px-1">
                   <ResultMeta {...result} />
                 </div>
               </div>

@@ -4,23 +4,23 @@ const ResultMeta = ({ source, code_creator, title, url }) => {
       case "reference":
       case "wordpress_reference":
         return "WP Code Reference";
-        break;
+      case "wordpress_dev_reference":
+        return "WP Make Blog";
       case "wp-cli":
       case "wpcli":
         return "WP-CLI Docs";
-        break;
       case "php":
       case "php_reference":
         return "PHP Docs";
-        break;
+      default:
+        return source;
     }
-    return source;
   };
 
   return (
     <>
       {title && <h2 className="font-mono text-base mt-2 mb-1">{title}</h2>}
-      <div className="flex justify-between">
+      <div className="flex justify-between text-sm">
         <p>
           <a
             href={url}
