@@ -1,6 +1,6 @@
 const ResultMeta = (result) => {
   const { source, code_creator, url } = result;
-  const title = "captain_hook";
+
   const getSourceName = () => {
     switch (source) {
       case "reference":
