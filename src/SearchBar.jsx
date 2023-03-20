@@ -41,6 +41,7 @@ const SearchBar = () => {
           onFocus={(e) => e.target.select()}
           placeholder="Search for a WordPress function, hook, or class."
           autoFocus
+          spellCheck="false"
         />
       </form>
 
