@@ -8,38 +8,34 @@ const capitalPDangit = (query) => {
 
 const SearchBar = (props) => {
   const { search, setSearch, setSearchHistory } = useSearchStore();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(search);
   const [selectedResult, selectResult] = useState(null);
 
   const handleSearch = (query) => {
-
-    setSearchTerm( capitalPDangit(query) );
+    setSearchTerm(capitalPDangit(query));
 
     const url = new URL(window.location);
     url.searchParams.set("search", query);
     window.history.pushState({}, "", url);
-  }
+  };
 
   useEffect(() => {
-
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
-    if ( urlParams.get( "search" ) && urlParams.get( "search" ).length > 0 ) {
-        const termWitjoutHash = urlParams.get( "search" ).replace( /#/i, '' );
+    if (urlParams.get("search") && urlParams.get("search").length > 0) {
+      const termWitjoutHash = urlParams.get("search").replace(/#/i, "");
 
-        if ( termWitjoutHash.length > 0 ) {
-            setSearchTerm( termWitjoutHash );
-        }
-    } 
-
+      if (termWitjoutHash.length > 0) {
+        setSearchTerm(termWitjoutHash);
+      }
+    }
   }, []);
 
   useEffect(() => {
     selectResult(null);
     const id = setTimeout(() => {
       setSearch(searchTerm);
-
     }, 300);
     return () => clearTimeout(id);
   }, [searchTerm, setSearch]);
@@ -52,7 +48,6 @@ const SearchBar = (props) => {
     return () => clearTimeout(id);
   }, [search, setSearchHistory]);
 
-
   return (
     <div className="search-bar-wrap">
       <form method="get" onSubmit={(e) => e.preventDefault()}>
@@ -64,7 +59,7 @@ const SearchBar = (props) => {
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={(e) => e.target.select()}
           onMouseUp={(e) => e.preventDefault()}
-          placeholder="Search for a WordPress function, hook, or class."
+          placeholder="Search for code samples..."
           autoFocus
           spellCheck="false"
         />
