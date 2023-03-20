@@ -54,7 +54,7 @@ const App = () => {
               rel="noreferrer"
               className="underline"
             >
-              WordPress.org Code Reference
+              WP Code Reference
             </a>
             <a
               href="https://developer.wordpress.org/cli/commands/"
@@ -63,6 +63,14 @@ const App = () => {
               className="underline"
             >
               WP-CLI Commands
+            </a>
+            <a
+              href="https://www.php.net/manual/en/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              PHP Docs
             </a>
           </div>
         </div>
