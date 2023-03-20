@@ -6,17 +6,40 @@ const capitalPDangit = (query) => {
   return query.replace(/Wordpress/i, "WordPress");
 };
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const { search, setSearch, setSearchHistory } = useSearchStore();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedResult, selectResult] = useState(null);
 
-  const handleSearch = (query) => setSearchTerm(capitalPDangit(query));
+  const handleSearch = (query) => {
+
+    setSearchTerm( capitalPDangit(query) );
+
+    const url = new URL(window.location);
+    url.searchParams.set("search", query);
+    window.history.pushState({}, "", url);
+  }
+
+  useEffect(() => {
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    if ( urlParams.get( "search" ) && urlParams.get( "search" ).length > 0 ) {
+        const termWitjoutHash = urlParams.get( "search" ).replace( /#/i, '' );
+
+        if ( termWitjoutHash.length > 0 ) {
+            setSearchTerm( termWitjoutHash );
+        }
+    } 
+
+  }, []);
 
   useEffect(() => {
     selectResult(null);
     const id = setTimeout(() => {
       setSearch(searchTerm);
+
     }, 300);
     return () => clearTimeout(id);
   }, [searchTerm, setSearch]);
@@ -29,6 +52,7 @@ const SearchBar = () => {
     return () => clearTimeout(id);
   }, [search, setSearchHistory]);
 
+
   return (
     <div className="search-bar-wrap">
       <form method="get" onSubmit={(e) => e.preventDefault()}>
@@ -39,6 +63,7 @@ const SearchBar = () => {
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={(e) => e.target.select()}
+          onMouseUp={(e) => e.preventDefault()}
           placeholder="Type in your keywords..."
           autoFocus
           spellCheck="false"
