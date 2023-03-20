@@ -39,6 +39,7 @@ const SearchBar = () => {
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search for a WordPress function, hook, or class."
+          autofocus="autofocus"
         />
       </form>
 
