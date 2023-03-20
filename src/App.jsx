@@ -72,7 +72,7 @@ const App = () => {
         <div className="w-full max-w-7xl mx-auto flex-grow">
           <SearchBar />
         </div>
-        <footer className="mx-auto max-w-7xl w-full text-gray-700 flex justify-between">
+        <footer className="mx-auto mt-8 max-w-7xl w-full text-gray-700 flex justify-between">
           <p>
             <a
               className="underline hover:text-black"
