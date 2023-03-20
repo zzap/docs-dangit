@@ -54,7 +54,15 @@ const App = () => {
               rel="noreferrer"
               className="underline"
             >
-              WordPress.org Code Reference
+              WP Code Reference
+            </a>
+            <a
+              href="https://make.wordpress.org/core/tag/dev-notes/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              WP Dev Notes
             </a>
             <a
               href="https://developer.wordpress.org/cli/commands/"
@@ -62,7 +70,15 @@ const App = () => {
               rel="noreferrer"
               className="underline"
             >
-              WP-CLI Commands
+              WP-CLI Docs
+            </a>
+            <a
+              href="https://www.php.net/manual/en/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              PHP Docs
             </a>
           </div>
         </div>
@@ -72,7 +88,7 @@ const App = () => {
         <div className="w-full max-w-7xl mx-auto flex-grow">
           <SearchBar />
         </div>
-        <footer className="mx-auto max-w-7xl w-full text-gray-700 flex justify-between">
+        <footer className="mx-auto mt-8 max-w-7xl w-full text-gray-700 flex justify-between">
           <p>
             <a
               className="underline hover:text-black"

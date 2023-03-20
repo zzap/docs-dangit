@@ -7,7 +7,7 @@ Website: https://docs-dang.it/
 This repo contains the frontend code for [the project website](https://docs-dang.it/). Code for the backend is in [docs_dangit-the-beast](https://github.com/zzap/docs_dangit-the-beast) repo.
 
 ## Participants:
-- Jessica Lyschik - https://github.com/luminuu - design
+- Jessica Lyschik - https://github.com/luminuu - design/frontend
 - Dhanuka Nuwan - https://github.com/dhanukanuwan - frontend
 - Sven Wagener - https://github.com/mahype - parser/backend
 - David Beja - https://github.com/dbeja - parser/backend
@@ -40,6 +40,12 @@ Official PHP documentation, hosted on https://github.com/php/doc-en.
 
 URL: https://www.php.net/docs.php
 
+### WordPress dev notes
+
+Every WordPress release is accomanied with a number of dev notes in Core blog. These notes are packed with useful code examples. 
+
+URL: https://make.wordpress.org/core/tag/dev-notes/
+
 ## Technical solution
 
 ### Backend
@@ -48,6 +54,7 @@ Parsers are built on top of [Symfony Console](https://symfony.com/doc/current/co
 - [WordPress code reference](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/WordPress_Docs.php) 
 - [WP-CLI](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/WP_CLI.php)
 - [PHP code reference](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/PHP_Docs.php)
+- [WordPress dev notes](https://github.com/zzap/docs_dangit-the-beast/blob/main/src/Parsers/Make_WordPress.php)
 
 Storage is in mySQL with a full-text index and [a small API](https://github.com/zzap/docs_dangit-the-beast/tree/main/backend) built with [Laminas](https://docs.laminas.dev/) and [Mezzio](https://docs.mezzio.dev/) frameworks. API is private for now but could be made public in the future given the proper setup and storage financing is provided.
 

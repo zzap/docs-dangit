@@ -1,23 +1,39 @@
-import ExternalLinkIcon from "./svg/ExternalLinkIcon";
-
-const ResultMeta = (result) => {
-  const { code_creator, title, url } = result;
+const ResultMeta = ({ source, code_creator, title, url }) => {
+  const getSourceName = () => {
+    switch (source) {
+      case "reference":
+      case "wordpress_reference":
+        return "WP Code Reference";
+      case "wordpress_dev_reference":
+        return "WP Make Blog";
+      case "wp-cli":
+      case "wpcli":
+        return "WP-CLI Docs";
+      case "php":
+      case "php_reference":
+        return "PHP Docs";
+      default:
+        return source;
+    }
+  };
 
   return (
-    <div className="flex justify-between">
-      <p>{code_creator && <span>Created by {code_creator}</span>}</p>
-      <p>
-        {title?.length > 0 && (
+    <>
+      {title && <h2 className="font-mono text-base mt-2 mb-1">{title}</h2>}
+      <div className="flex justify-between text-sm">
+        <p>
           <a
             href={url}
-            className="flex items-center underline text-gray-700 hover:text-black"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center underline text-gray-700 hover:text-black"
           >
-            {title?.length ? title : "Test"}
-            <ExternalLinkIcon className="w-auto h-4 pl-1 -mt-px inline-block" />
+            {getSourceName()}
           </a>
-        )}
-      </p>
-    </div>
+          {code_creator && <span>, submitted by {code_creator}</span>}
+        </p>
+      </div>
+    </>
   );
 };
 
