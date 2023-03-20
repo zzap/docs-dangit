@@ -57,12 +57,20 @@ const App = () => {
               WP Code Reference
             </a>
             <a
+              href="https://make.wordpress.org/core/tag/dev-notes/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              WP Dev Notes
+            </a>
+            <a
               href="https://developer.wordpress.org/cli/commands/"
               target="_blank"
               rel="noreferrer"
               className="underline"
             >
-              WP-CLI Commands
+              WP-CLI Docs
             </a>
             <a
               href="https://www.php.net/manual/en/"

@@ -92,7 +92,7 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
               <div>
                 <button
                   type="button"
-                  className="relative w-full rounded-xl text-left overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105 hover:shadow-black/40 cursor-pointer focus:shadow-lg focus:scale-105 focus:shadow-black/40 border-0 bg-[#282c34] focus:outline-none focus:ring focus:ring-offset-1 ring-offset-white ring-blue-600 group"
+                  className="relative w-full rounded-xl text-left overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-105 hover:shadow-black/40 cursor-pointer focus:shadow-lg focus:scale-105 focus:shadow-black/40 border-0 bg-[#282c34] focus:outline-none focus:ring-2 focus:ring-offset-1 ring-offset-white ring-blue-600 group"
                   onClick={() => selectResult(index)}
                   key={index.code}
                 >
