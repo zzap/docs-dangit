@@ -1,5 +1,5 @@
 const ResultMeta = (result) => {
-  const { source, code_creator, url } = result;
+  const { source, code_creator, title, url } = result;
 
   const getSourceName = () => {
     switch (source) {
@@ -20,18 +20,22 @@ const ResultMeta = (result) => {
   };
 
   return (
-    <div className="flex justify-between">
-      <p>
-        <a
-          href={url}
-          target="_blank"
-          className="inline-flex items-center underline text-gray-700 hover:text-black"
-        >
-          {getSourceName()}
-        </a>
-        {code_creator && <span>, submitted by {code_creator}</span>}
-      </p>
-    </div>
+    <>
+      {title && <h2 className="font-mono text-base mt-2 mb-1">{title}</h2>}
+      <div className="flex justify-between">
+        <p>
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center underline text-gray-700 hover:text-black"
+          >
+            {getSourceName()}
+          </a>
+          {code_creator && <span>, submitted by {code_creator}</span>}
+        </p>
+      </div>
+    </>
   );
 };
 
