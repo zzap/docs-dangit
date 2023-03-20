@@ -56,6 +56,9 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
         </div>
 
         <div className="mb-4">
+          <div className="my-4">
+            <ResultMeta {...data[selectedResult]} />
+          </div>
           <Highlight
             className={
               data[selectedResult]?.code_language +
