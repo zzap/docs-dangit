@@ -1,6 +1,4 @@
-const ResultMeta = (result) => {
-  const { source, code_creator, title, url } = result;
-
+const ResultMeta = ({ source, code_creator, title, url }) => {
   const getSourceName = () => {
     switch (source) {
       case "reference":
