@@ -12,34 +12,30 @@ const SearchBar = (props) => {
   const [selectedResult, selectResult] = useState(null);
 
   const handleSearch = (query) => {
-
-    setSearchTerm( capitalPDangit(query) );
+    setSearchTerm(capitalPDangit(query));
 
     const url = new URL(window.location);
     url.searchParams.set("search", query);
     window.history.pushState({}, "", url);
-  }
+  };
 
   useEffect(() => {
-
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
-    if ( urlParams.get( "search" ) && urlParams.get( "search" ).length > 0 ) {
-        const termWitjoutHash = urlParams.get( "search" ).replace( /#/i, '' );
+    if (urlParams.get("search") && urlParams.get("search").length > 0) {
+      const termWitjoutHash = urlParams.get("search").replace(/#/i, "");
 
-        if ( termWitjoutHash.length > 0 ) {
-            setSearchTerm( termWitjoutHash );
-        }
-    } 
-
+      if (termWitjoutHash.length > 0) {
+        setSearchTerm(termWitjoutHash);
+      }
+    }
   }, []);
 
   useEffect(() => {
     selectResult(null);
     const id = setTimeout(() => {
       setSearch(searchTerm);
-
     }, 300);
     return () => clearTimeout(id);
   }, [searchTerm, setSearch]);
@@ -51,7 +47,6 @@ const SearchBar = (props) => {
     }, 2000);
     return () => clearTimeout(id);
   }, [search, setSearchHistory]);
-
 
   return (
     <div className="search-bar-wrap">
