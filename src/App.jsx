@@ -95,12 +95,18 @@ const App = () => {
               aria-hidden={true}
               className="cursor-text"
               onClick={() => {
+                // get button x and y position
+                const button = document.getElementById("cool-kids-button");
+                const {x: bx, y: by, width: bw} = button.getBoundingClientRect();
+                // convert x, y to 0 to 1 with 1 being 100% of the screen
+                const x = (bx + (bw / 2)) / window.innerWidth
+                const y = by / window.innerHeight;
                 confetti({
                   particleCount: 2,
                   decay: 0.7,
                   gravity: 0.1,
                   startVelocity: 35,
-                  origin: { x: 0.84, y: 0.9 },
+                  origin: { x, y },
                 });
               }}
             >
