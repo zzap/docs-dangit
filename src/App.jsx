@@ -93,8 +93,8 @@ const App = () => {
             <a
               className="underline hover:text-black"
               href="https://www.cloudfest.com/a-search-engine-for-wordpress-developers"
-			  target="_blank"
-			  rel="nofollow noreferrer"
+              target="_blank"
+              rel="nofollow noreferrer"
             >
               CloudFest hackathon 2023 project
             </a>{" "}
@@ -102,8 +102,8 @@ const App = () => {
             <a
               className="underline hover:text-black"
               href="https://github.com/zzap/docs-dangit"
-			  target="_blank"
-			  rel="nofollow noreferrer"
+              target="_blank"
+              rel="nofollow noreferrer"
             >
               GitHub repository
             </a>
