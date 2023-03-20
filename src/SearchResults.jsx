@@ -14,14 +14,6 @@ const SearchResults = ({ query }) => {
   const [copyStatus, setCopyStatus] = useState("");
   const { data, error, loading } = useSearch(query);
 
-  const codeSnippets = data?.reduce((accumulator, result) => {
-    const codeSnippet = result.code_snippet;
-    codeSnippet.url = result.url;
-    codeSnippet.codeCreator = result.code_creator;
-    accumulator.push(...codeSnippet);
-    return accumulator;
-  }, []);
-
   const copyToClipboard = async (text) => {
     return navigator.clipboard.writeText(text);
   };
@@ -33,7 +25,7 @@ const SearchResults = ({ query }) => {
 
   if (!query) return null;
 
-  if (null !== selectedResult && codeSnippets && codeSnippets[selectedResult]) {
+  if (null !== selectedResult && data && data[selectedResult]) {
     return (
       <div className="results-wrap mt-8">
         <div className="flex justify-between mb-4">
@@ -45,7 +37,7 @@ const SearchResults = ({ query }) => {
           </button>
           <button
             onClick={() => {
-              copyToClipboard(codeSnippets[selectedResult]?.content?.rendered)
+              copyToClipboard(data[selectedResult]?.code)
                 .then(() => {
                   setCopyStatus("Copied!");
                   setTimeout(() => setCopyStatus(""), 2000);
@@ -66,12 +58,12 @@ const SearchResults = ({ query }) => {
         <div className="mb-4">
           <Highlight
             className={
-              codeSnippets[selectedResult]?.language +
+              data[selectedResult]?.code_language +
               " rounded-xl p-4 shadow font-mono text-sm"
             }
             key={selectedResult}
           >
-            {decodeHTMLEntities(codeSnippets[selectedResult]?.code)}
+            {decodeHTMLEntities(data[selectedResult]?.code)}
           </Highlight>
         </div>
       </div>
@@ -86,14 +78,14 @@ const SearchResults = ({ query }) => {
         ) : (
           <h2 className="font-bold">Search results for: {query}</h2>
         ))}
-      {codeSnippets && codeSnippets?.length > 0 && (
+      {data && data?.length > 0 && (
         <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {codeSnippets.map((item, index) => {
+          {data.map((item, index) => {
             return (
               <div onClick={() => selectResult(index)} key={index}>
                 <Highlight
                   className={
-                    item?.language +
+                    item?.code_language +
                     " rounded-xl p-4 shadow font-mono h-60 text-sm overflow-hidden whitespace-pre-wrap cursor-pointer hover:shadow-lg hover:shadow-black/40 hover:scale-105 transition-all duration-200 ease-in-out"
                   }
                   key={index}
