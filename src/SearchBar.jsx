@@ -8,7 +8,7 @@ const capitalPDangit = (query) => {
 
 const SearchBar = (props) => {
   const { search, setSearch, setSearchHistory } = useSearchStore();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(search);
   const [selectedResult, selectResult] = useState(null);
 
   const handleSearch = (query) => {
