@@ -23,7 +23,7 @@ const ResultMeta = ({ source, code_creator, title, url }) => {
   return (
     <>
       {title && <h2 className="font-mono text-base mt-2 mb-1">{title}</h2>}
-      <div className="flex justify-between">
+      <div className="flex justify-between text-sm">
         <p>
           <a
             href={url}
