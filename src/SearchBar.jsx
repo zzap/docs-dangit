@@ -8,15 +8,16 @@ const capitalPDangit = (query) => {
 };
 
 const types = {
-  '': 'All',
-  wordpress_reference: 'WordPress Reference',
-  wordpress_dev_reference: 'WordPress Dev Notes',
-  wpcli: 'WP CLI',
-  php_reference: 'PHP.net',
-}
+  "": "All",
+  wordpress_reference: "WordPress Reference",
+  wordpress_dev_reference: "WordPress Dev Notes",
+  wpcli: "WP CLI",
+  php_reference: "PHP.net",
+};
 
 const SearchBar = () => {
-  const { search, setSearch, setSearchHistory, type, setType } = useSearchStore();
+  const { search, setSearch, setSearchHistory, type, setType } =
+    useSearchStore();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedResult, selectResult] = useState(null);
 
@@ -40,7 +41,11 @@ const SearchBar = () => {
 
   return (
     <div className="search-bar-wrap">
-      <form className="flex flex-col gap-3" method="get" onSubmit={(e) => e.preventDefault()}>
+      <form
+        className="flex flex-col gap-3"
+        method="get"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <label htmlFor="search" className="sr-only">
           Search
         </label>
@@ -56,10 +61,14 @@ const SearchBar = () => {
         <div className="flex gap-2 items-center">
           <p className="text-sm">Filter by type:</p>
           {Object.entries(types).map(([key, value]) => (
-            <button type="button" onClick={() => setType(key)} className={clsx("p-1 px-3 rounded-xl text-sm", {
-              'bg-blue-700 text-white': type === key,
-              'bg-gray-200': type !== key,
-            })}>
+            <button
+              type="button"
+              onClick={() => setType(key)}
+              className={clsx("p-1 px-3 rounded-xl text-sm", {
+                "bg-blue-700 text-white": type === key,
+                "bg-gray-200": type !== key,
+              })}
+            >
               {value}
             </button>
           ))}

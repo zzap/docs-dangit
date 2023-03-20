@@ -11,7 +11,7 @@ const decodeHTMLEntities = (text) => {
 
 const SearchResults = ({ search, type, selectedResult, selectResult }) => {
   const [copyStatus, setCopyStatus] = useState("");
-  const { data, error, loading } = useSearch({search, type});
+  const { data, error, loading } = useSearch({ search, type });
 
   const copyToClipboard = async (text) => {
     return navigator.clipboard.writeText(text);
