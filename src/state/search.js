@@ -5,8 +5,10 @@ export const useSearchStore = create(
   persist(
     (set, get) => ({
       search: "",
+      type: "",
       searchHistory: [],
       setSearch: (search) => set({ search }),
+      setType: (type) => set({ type }),
       setSearchHistory: (search) =>
         set({ searchHistory: [search, ...get().searchHistory.slice(-9)] }),
     }),

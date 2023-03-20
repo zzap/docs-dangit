@@ -11,15 +11,15 @@ const decodeHTMLEntities = (text) => {
   return textArea.value;
 };
 
-const SearchResults = ({ query, selectedResult, selectResult }) => {
+const SearchResults = ({ search, type, selectedResult, selectResult }) => {
   const [copyStatus, setCopyStatus] = useState("");
-  const { data, error, loading } = useSearch(query);
+  const { data, error, loading } = useSearch({ search, type });
 
   const copyToClipboard = async (text) => {
     return navigator.clipboard.writeText(text);
   };
 
-  if (!query) return null;
+  if (!search) return null;
 
   if (error) {
     return <p className="mt-8 text-gray-600">Failed to load, dangit.</p>;
@@ -78,12 +78,12 @@ const SearchResults = ({ query, selectedResult, selectResult }) => {
 
   return (
     <div className="results-wrap mt-8 container">
-      {query && query.length < 3 ? (
+      {search && search.length < 3 ? (
         <p className="text-gray-600">Keep typing...</p>
       ) : data.length === 0 ? (
-        <h2 className="font-bold">No search results for: {query}</h2>
+        <h2 className="font-bold">No search results for: {search}</h2>
       ) : (
-        <h2 className="font-bold">Search results for: {query}</h2>
+        <h2 className="font-bold">Search results for: {search}</h2>
       )}
       {data && data?.length > 0 && (
         <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
