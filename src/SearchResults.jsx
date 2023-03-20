@@ -9,8 +9,7 @@ const decodeHTMLEntities = (text) => {
   return textArea.value;
 };
 
-const SearchResults = ({ query }) => {
-  const [selectedResult, selectResult] = useState(null);
+const SearchResults = ({ query, selectedResult, selectResult }) => {
   const [copyStatus, setCopyStatus] = useState("");
   const { data, error, loading } = useSearch(query);
 

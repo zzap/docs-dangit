@@ -8,15 +8,18 @@ const capitalPDangit = (query) => {
 
 const SearchBar = () => {
   const { search, setSearch, setSearchHistory } = useSearchStore();
-  const [s, setS] = useState("");
-  const handleSearch = (query) => setS(capitalPDangit(query));
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedResult, selectResult] = useState(null);
+
+  const handleSearch = (query) => setSearchTerm(capitalPDangit(query));
 
   useEffect(() => {
+    selectResult(null);
     const id = setTimeout(() => {
-      setSearch(s);
+      setSearch(searchTerm);
     }, 300);
     return () => clearTimeout(id);
-  }, [s, setSearch]);
+  }, [searchTerm, setSearch]);
 
   useEffect(() => {
     // Sets the search into the history after a 2s debounce
@@ -33,13 +36,17 @@ const SearchBar = () => {
           className="w-full rounded-full py-4 px-6 border-2 font-mono"
           type="search"
           name="search"
-          value={s}
+          value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search for a WordPress function, hook, or class."
         />
       </form>
 
-      <SearchResults query={search} />
+      <SearchResults
+        query={search}
+        selectedResult={selectedResult}
+        selectResult={selectResult}
+      />
     </div>
   );
 };
