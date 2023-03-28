@@ -1,5 +1,7 @@
 name: Lint
-on: push
+on:
+    push:
+        branches: ["main"]
 jobs:
     lint:
         name: Lint
