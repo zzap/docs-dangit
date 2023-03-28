@@ -1,0 +1,10 @@
+vendor
+config/*.ini
+deploy-key
+deploy
+build
+phpunit.xml
+.DS_Store
+dumps/*
+.idea
+/tools
