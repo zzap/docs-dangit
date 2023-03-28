@@ -35,17 +35,19 @@ jobs:
               uses: actions/configure-pages@v3
             - name: Install dependencies
               run: npm ci
+              working-directory: ./frontend
             - name: Lint
               run: |
                   # Don't deploy if there are linting errors
                   npx eslint --max-warnings 0 ./src
+              working-directory: ./frontend
             - name: Build
               run: npm run build
-
+              working-directory: ./frontend
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v1
               with:
-                  path: "build"
+                  path: "frontend/build"
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v1
