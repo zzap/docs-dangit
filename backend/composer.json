@@ -1,7 +1,7 @@
 {
   "name": "docs-dangit/backend",
   "type": "project",
-  "license": "MIT",
+  "license": "GPLv3",
 	"config": {
 		"sort-packages": true,
 		"allow-plugins": {
