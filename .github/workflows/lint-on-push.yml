@@ -1,5 +1,7 @@
 name: Lint
-on: push
+on:
+    push:
+        branches: ["main"]
 jobs:
     lint:
         name: Lint
@@ -14,11 +16,13 @@ jobs:
 
             - name: Install NPM packages
               run: npm ci --include=dev
+              working-directory: ./frontend
 
             - name: Attempt to fix linting errors
               run: |
                   npx eslint --fix ./src
                   npx prettier --write ./src
+              working-directory: ./frontend
               env:
                   CI: true
 
@@ -35,5 +39,6 @@ jobs:
               run: |
                   npx eslint --max-warnings 0 ./src
                   npm run build
+              working-directory: ./frontend
               env:
                   CI: true

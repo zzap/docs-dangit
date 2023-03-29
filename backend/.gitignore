@@ -1,0 +1,4 @@
+vendor/
+elasticdata/
+.docker/nginx/ssl/ca.crt
+.docker/nginx/ssl/ca.key
