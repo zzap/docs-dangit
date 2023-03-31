@@ -11,7 +11,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Symfony\Component\Console\Application;
 
 $app = new Application();
-$app->add(new \Docsdangit\Command\Example());
 $app->add(new \Docsdangit\Command\Ingest());
 
 $app->run();
