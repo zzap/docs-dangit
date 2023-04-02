@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Hello there, thank you so much for bringing this to our attention. We'll dang it very soon. Enjoy :)"
+        pr-message: "Great job, thanks for pushing this. Someone will review it and get back to you. Meanwhile, relax and enjoy :)"
