@@ -19,7 +19,7 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                  tools: wp-cli
+                  tools: wp-cli, composer
 
             - name: Generate WP-CLI Commands List
               run: wp cli cmd-dump > ${{ github.workspace }}/cli/data/wpcli-commands.json
@@ -35,3 +35,6 @@ jobs:
                   commit_user_name: 'GitHub Actions'
                   commit_user_email: 'github-actions[bot]@users.noreply.github.com'
                   commit_author: 'GitHub Actions <github-actions[bot]@users.noreply.github.com>'
+                  
+            - name: Ingest WP-CLI Commands List
+              run: cd cli && composer install && ./bin/docsdangit ingest -s wp-cli
