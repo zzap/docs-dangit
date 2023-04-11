@@ -1,0 +1,25 @@
+name: Update WP Dev Examples
+on:
+    workflow_dispatch:
+    schedule:
+    # Once a day at 3am
+    - cron: "0 3 * * *"
+jobs:
+    wp-dev:
+        name: WP Dev
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        strategy:
+            fail-fast: true
+        steps:
+            - name: Check out source code
+              uses: actions/checkout@v3
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  tools: wp-cli, composer
+                  
+            - name: Ingest WP Dev Examples
+              run: cd cli && composer install && ./bin/docsdangit ingest -s wp-dev
