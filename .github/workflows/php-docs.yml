@@ -1,0 +1,25 @@
+name: Update PHP Docs Examples
+on:
+    workflow_dispatch:
+    schedule:
+    # Once a day at 2am
+    - cron: "0 2 * * *"
+jobs:
+    php-docs:
+        name: PHP Docs
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        strategy:
+            fail-fast: true
+        steps:
+            - name: Check out source code
+              uses: actions/checkout@v3
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  tools: wp-cli, composer
+                  
+            - name: Ingest PHP Docs Examples
+              run: cd cli && composer install && ./bin/docsdangit ingest -s php-docs
