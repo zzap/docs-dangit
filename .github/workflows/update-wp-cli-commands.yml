@@ -1,0 +1,31 @@
+name: Update WP-CLI Commands List
+on:
+    workflow_dispatch:
+    schedule:
+    # Once a day at 6am
+    - cron: "0 6 * * *"
+jobs:
+    wp-cli:
+        name: WP CLI Commands List
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        strategy:
+            fail-fast: true
+        steps:
+            - name: Check out source code
+              uses: actions/checkout@v3
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  tools: wp-cli, composer
+
+            - name: Generate WP-CLI Commands List
+              run: wp cli cmd-dump > ${{ runner.temp }}/wpcli-commands.json
+              
+            - name: Get WP-CLI version
+              run: wp --version > ${{ runner.temp }}/wpcli-version.txt
+
+            - name: Ingest WP-CLI Commands List
+              run: cd cli && composer install && ./bin/docsdangit ingest --source=wp-cli --cli-dump-path=${{ runner.temp }}/wpcli-commands.json --cli-version-path=${{ runner.temp }}/wpcli-version.txt
