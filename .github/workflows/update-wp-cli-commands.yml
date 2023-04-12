@@ -22,19 +22,10 @@ jobs:
                   tools: wp-cli, composer
 
             - name: Generate WP-CLI Commands List
-              run: wp cli cmd-dump > ${{ github.workspace }}/cli/data/wpcli-commands.json
+              run: wp cli cmd-dump > ${{ runner.temp }}/wpcli-commands.json
               
             - name: Get WP-CLI version
-              run: wp --version > ${{ github.workspace }}/cli/data/wpcli-version.txt
+              run: wp --version > ${{ runner.temp }}/wpcli-version.txt
 
-            - name: Commit any changes
-              uses: stefanzweifel/git-auto-commit-action@v4
-              with:
-                  commit_message: 'Update WP-CLI Commands List'
-                  commit_options: '--no-verify'
-                  commit_user_name: 'GitHub Actions'
-                  commit_user_email: 'github-actions[bot]@users.noreply.github.com'
-                  commit_author: 'GitHub Actions <github-actions[bot]@users.noreply.github.com>'
-                  
             - name: Ingest WP-CLI Commands List
-              run: cd cli && composer install && ./bin/docsdangit ingest -s wp-cli
+              run: cd cli && composer install && ./bin/docsdangit ingest --source=wp-cli --cli-dump-path=${{ runner.temp }}/wpcli-commands.json --cli-version-path=${{ runner.temp }}/wpcli-version.txt
