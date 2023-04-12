@@ -13,21 +13,27 @@ use Docsdangit\Data\API_Writer;
 
 class WP_CLI implements Parser {
     private $wp_cli_version;
+    private $dump_path = 'data/wpcli-commands.json';
+    private $cli_version_path = 'data/wpcli-version.txt';
 
-    public function __construct() {
+    public function __construct( $dump_path = null, $cli_version_path = null ) {
         $this->wp_cli_version = $this->get_source_version();
+        if( $dump_path ) {
+            $this->dump_path = $dump_path;
+        }
+        if( $cli_version_path ) {
+            $this->cli_version_path = $cli_version_path;
+        }
     }
 
     public function parse() {
-        $file = 'data/wpcli-commands.json';
-        $raw = file_get_contents( $file );
+        $raw = file_get_contents( $this->dump_path );
         $json = json_decode( $raw );
         $this->process_subcommands( $json->subcommands, 'https://developer.wordpress.org/cli/commands/', [] );
     }
 
     public function get_source_version() {
-        $file = 'data/wpcli-version.txt';
-        $raw = file_get_contents( $file );
+        $raw = file_get_contents( $this->cli_version_path );
         return str_replace("WP-CLI ", "", $raw);
     }
 

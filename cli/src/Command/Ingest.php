@@ -31,7 +31,9 @@ class Ingest extends Command
             ->setDescription("Ingest docs")
             ->setDefinition(
                 new InputDefinition([
-                    new InputOption('source', 's', InputOption::VALUE_OPTIONAL, 'Docs source (wp-docs, php-docs, wp-cli, wp-dev). All sources by default.')
+                    new InputOption('source', 's', InputOption::VALUE_OPTIONAL, 'Docs source (wp-docs, php-docs, wp-cli, wp-dev). All sources by default.'),
+                    new InputOption('cli-dump-path', 'dp', InputOption::VALUE_OPTIONAL, 'WP CLI dump file path'),
+                    new InputOption('cli-version-path', 'vp', InputOption::VALUE_OPTIONAL, 'WP CLI version file path')
                 ])
             );
     }
@@ -53,7 +55,9 @@ class Ingest extends Command
         }
         if( ! $source || 'wp-cli' === $source ) {
             $output->writeln('🚀 Ingesting WP CLI Docs...');
-            $wp_docs = new WP_CLI();
+            $cli_dump_path = $input->getOption('cli-dump-path');
+            $cli_version_path = $input->getOption('cli-version-path');
+            $wp_docs = new WP_CLI( $cli_dump_path, $cli_version_path );
             $wp_docs->parse();
         }
         if( ! $source || 'php-docs' === $source ) {
